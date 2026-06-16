@@ -116,9 +116,9 @@ export default function Composer() {
     sections: MASS_TEMPLATE.map((s, i) => ({
       section_type: s.key,
       ordre: i,
-      chant_id: sections[s.key].chant_id || undefined,
-      texte_libre: sections[s.key].texte_libre || undefined,
-      titre_libre: sections[s.key].titre_libre || undefined,
+      chant_id: sections[s.key].chant_id || null,
+      texte_libre: sections[s.key].texte_libre || null,
+      titre_libre: sections[s.key].titre_libre || null,
     })),
   })
 
