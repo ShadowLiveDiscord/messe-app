@@ -1,5 +1,5 @@
 'use client'
-import { useEffect, useState, useCallback } from 'react'
+import { useEffect, useState, useCallback, Suspense } from 'react'
 import { useSearchParams, useRouter } from 'next/navigation'
 import {
   getChants, getMesse, createMesse, updateMesse,
@@ -52,7 +52,15 @@ interface SectionState {
   titre_libre: string
 }
 
-export default function Composer() {
+export default function ComposerPage() {
+  return (
+    <Suspense fallback={<div className="text-center py-20 text-gray-400">Chargement...</div>}>
+      <Composer />
+    </Suspense>
+  )
+}
+
+function Composer() {
   const searchParams = useSearchParams()
   const router = useRouter()
   const editId = searchParams.get('edit')
